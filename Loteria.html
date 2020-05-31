@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" href="./img/loteria.png" />
+    <link rel="stylesheet" href="css/loteriaStyle.css">
+
+    <title>Loteria</title>
+
+
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="row">
+        <h1>Loteria com JavaScript</h1>
+        <img src="./img/loteria.png" width="90px" alt="imagem loteria">
+    </div>
+    <div id="output">
+       
+    </div>
+
+    
+
+    <script>
+
+        var sorteados = obtemNumerosSortidos();
+        var output = document.querySelector('#output');
+        var msg = "";
+
+        msg += "<p>Números sorteados: </p>" 
+        msg += "<p>" + sorteados.join(", ") + "</p>";
+
+        var meusNumeros = [4, 20, 53, 48, 10, 17]
+
+        for (var i = 0; i < meusNumeros.length; i++) {
+            msg += "<p>" + meusNumeros[i] + ": ";
+            msg +=(sorteados.indexOf(meusNumeros[i]) === -1) ? "Errou!" : "Acertou!"
+            msg += "</p>"
+
+        }
+
+        output.innerHTML = msg;
+
+        function obtemNumerosSortidos() {
+            var sorteados = [];
+            function sortear() {
+                return Math.floor(Math.random() * 60)
+            }
+
+            while (sorteados.length < 6) {
+                var sorteado = sortear();
+                if (sorteados.indexOf(sorteado) === -1) {
+                    sorteados[sorteados.length] = sorteado;
+                }
+                console.log(sorteados.length, sorteado);
+
+            }
+            return sorteados;
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+.row{
+    justify-content: center;
+    text-align: center;
+    font-family: monospace;
+}
+
+#output{
+    margin-top: 30px;
+    margin-left: 585px;
+   font-family: monospace;
+   font-size: 20px;
+}
